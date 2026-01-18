@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => BillProvider()..init()),
       ],
       child: MaterialApp(
-        title: 'Catch Your Bill',
+        title: 'Billify',
         theme: AppTheme.lightTheme,
         debugShowCheckedModeBanner: false,
         home: const AppInitializer(),

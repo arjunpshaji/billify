@@ -153,7 +153,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 const SizedBox(height: AppSpacing.space4),
                 Text(
-                  'Catch Your Bill',
+                  'Billify',
                   style: AppTypography.body.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
@@ -162,7 +162,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Text('Version 1.0.0', style: AppTypography.caption),
                 const SizedBox(height: AppSpacing.space3),
                 Text(
-                  'A modern bill management app with OCR, PDF support, and currency conversion.',
+                  'A bill documenting and analyser',
                   style: AppTypography.body.copyWith(
                     color: AppColors.textSecondary,
                   ),
