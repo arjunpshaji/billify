@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'models/bill.dart';
 import 'providers/bill_provider.dart';
-import 'screens/home_screen.dart';
+import 'screens/main_screen.dart';
 import 'screens/onboarding_screen.dart';
 import 'utils/theme.dart';
 
@@ -69,6 +69,6 @@ class _AppInitializerState extends State<AppInitializer> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    return _showOnboarding ? const OnboardingScreen() : const HomeScreen();
+    return _showOnboarding ? const OnboardingScreen() : const MainScreen();
   }
 }

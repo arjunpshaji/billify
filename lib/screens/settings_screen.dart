@@ -37,20 +37,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgMain,
+      backgroundColor: DesignTokens.backgroundDark,
       appBar: AppBar(
-        title: Text('Settings', style: AppTypography.h2),
-        backgroundColor: AppColors.bgMain,
+        title: Text('Settings', style: DesignTokens.headingMedium),
+        backgroundColor: DesignTokens.backgroundDark,
       ),
       body: ListView(
-        padding: const EdgeInsets.all(AppSpacing.space4),
+        padding: const EdgeInsets.all(DesignTokens.spacing16),
         children: [
           // Currency Section
           Container(
-            padding: const EdgeInsets.all(AppSpacing.space5),
+            padding: const EdgeInsets.all(DesignTokens.spacing20),
             decoration: BoxDecoration(
-              color: AppColors.bgCard,
-              borderRadius: BorderRadius.circular(AppRadius.xl),
+              color: DesignTokens.backgroundCard,
+              borderRadius: BorderRadius.circular(DesignTokens.radiusXLarge),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,44 +58,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(AppSpacing.space2),
+                      padding: const EdgeInsets.all(DesignTokens.spacing8),
                       decoration: BoxDecoration(
-                        color: AppColors.primary.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(AppRadius.sm),
+                        color: DesignTokens.primaryPurple.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(DesignTokens.radiusSmall),
                       ),
                       child: Icon(
                         Icons.currency_exchange,
-                        color: AppColors.primary,
+                        color: DesignTokens.primaryPurple,
                       ),
                     ),
-                    const SizedBox(width: AppSpacing.space3),
+                    const SizedBox(width: DesignTokens.spacing12),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Display Currency', style: AppTypography.h3),
+                        Text('Display Currency', style: DesignTokens.headingSmall),
                         Text(
                           'Choose your preferred currency',
-                          style: AppTypography.caption,
+                          style: DesignTokens.caption,
                         ),
                       ],
                     ),
                   ],
                 ),
-                const SizedBox(height: AppSpacing.space4),
+                const SizedBox(height: DesignTokens.spacing16),
                 ...List.generate(_currencies.length, (index) {
                   final currency = _currencies[index];
                   final isSelected = currency == _selectedCurrency;
 
                   return Container(
-                    margin: const EdgeInsets.only(bottom: AppSpacing.space2),
+                    margin: const EdgeInsets.only(bottom: DesignTokens.spacing8),
                     decoration: BoxDecoration(
                       color: isSelected
-                          ? AppColors.primary.withOpacity(0.1)
-                          : AppColors.bgInput,
-                      borderRadius: BorderRadius.circular(AppRadius.md),
+                          ? DesignTokens.primaryPurple.withOpacity(0.1)
+                          : DesignTokens.backgroundCardLight,
+                      borderRadius: BorderRadius.circular(DesignTokens.radiusMedium),
                       border: Border.all(
                         color: isSelected
-                            ? AppColors.primary
+                            ? DesignTokens.primaryPurple
                             : Colors.transparent,
                         width: 2,
                       ),
@@ -110,14 +110,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       },
                       title: Text(
                         _getCurrencyName(currency),
-                        style: AppTypography.body.copyWith(
+                        style: DesignTokens.bodyMedium.copyWith(
                           fontWeight: isSelected
                               ? FontWeight.w600
                               : FontWeight.normal,
                         ),
                       ),
-                      subtitle: Text(currency, style: AppTypography.caption),
-                      activeColor: AppColors.primary,
+                      subtitle: Text(currency, style: DesignTokens.caption),
+                      activeColor: DesignTokens.primaryPurple,
                     ),
                   );
                 }),
@@ -125,14 +125,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
 
-          const SizedBox(height: AppSpacing.space4),
+          const SizedBox(height: DesignTokens.spacing16),
 
           // About Section
           Container(
-            padding: const EdgeInsets.all(AppSpacing.space5),
+            padding: const EdgeInsets.all(DesignTokens.spacing20),
             decoration: BoxDecoration(
-              color: AppColors.bgCard,
-              borderRadius: BorderRadius.circular(AppRadius.xl),
+              color: DesignTokens.backgroundCard,
+              borderRadius: BorderRadius.circular(DesignTokens.radiusXLarge),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,31 +140,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Row(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(AppSpacing.space2),
+                      padding: const EdgeInsets.all(DesignTokens.spacing8),
                       decoration: BoxDecoration(
-                        color: AppColors.secondary.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(AppRadius.sm),
+                        color: DesignTokens.primaryPurpleDark.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(DesignTokens.radiusSmall),
                       ),
-                      child: Icon(Icons.info, color: AppColors.secondary),
+                      child: Icon(Icons.info, color: DesignTokens.primaryPurpleDark),
                     ),
-                    const SizedBox(width: AppSpacing.space3),
-                    Text('About', style: AppTypography.h3),
+                    const SizedBox(width: DesignTokens.spacing12),
+                    Text('About', style: DesignTokens.headingSmall),
                   ],
                 ),
-                const SizedBox(height: AppSpacing.space4),
+                const SizedBox(height: DesignTokens.spacing16),
                 Text(
                   'Billify',
-                  style: AppTypography.body.copyWith(
+                  style: DesignTokens.bodyMedium.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(height: AppSpacing.space1),
-                Text('Version 1.0.0', style: AppTypography.caption),
-                const SizedBox(height: AppSpacing.space3),
+                const SizedBox(height: DesignTokens.spacing4),
+                Text('Version 1.0.0', style: DesignTokens.caption),
+                const SizedBox(height: DesignTokens.spacing12),
                 Text(
                   'A bill documenting and analyser',
-                  style: AppTypography.body.copyWith(
-                    color: AppColors.textSecondary,
+                  style: DesignTokens.bodyMedium.copyWith(
+                    color: DesignTokens.textSecondary,
                   ),
                 ),
               ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../utils/design_tokens.dart';
-import 'home_screen.dart';
+import 'main_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -50,7 +50,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (mounted) {
       Navigator.of(
         context,
-      ).pushReplacement(MaterialPageRoute(builder: (_) => const HomeScreen()));
+      ).pushReplacement(MaterialPageRoute(builder: (_) => const MainScreen()));
     }
   }
 
@@ -72,7 +72,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgMain,
+      backgroundColor: DesignTokens.backgroundDark,
       body: Stack(
         children: [
           // Page View
@@ -98,8 +98,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPressed: _skipOnboarding,
                 child: Text(
                   'Skip',
-                  style: AppTypography.body.copyWith(
-                    color: AppColors.textSecondary,
+                  style: DesignTokens.bodyMedium.copyWith(
+                    color: DesignTokens.textSecondary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -128,15 +128,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: ElevatedButton(
               onPressed: _nextPage,
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
+                backgroundColor: DesignTokens.primaryPurple,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppRadius.lg),
+                  borderRadius: BorderRadius.circular(DesignTokens.radiusLarge),
                 ),
               ),
               child: Text(
                 _currentPage == _slides.length - 1 ? 'Get Started' : 'Next',
-                style: AppTypography.body.copyWith(
+                style: DesignTokens.bodyMedium.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
@@ -163,13 +163,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 24),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppRadius.xxl),
+                  borderRadius: BorderRadius.circular(DesignTokens.radiusRound),
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      AppColors.primary.withOpacity(0.3),
-                      AppColors.secondary.withOpacity(0.3),
+                      DesignTokens.primaryPurple.withOpacity(0.3),
+                      DesignTokens.primaryPurpleDark.withOpacity(0.3),
                     ],
                   ),
                 ),
@@ -177,7 +177,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Icon(
                     _getIconForSlide(slide),
                     size: 120,
-                    color: AppColors.primary,
+                    color: DesignTokens.primaryPurple,
                   ),
                 ),
               ),
@@ -193,19 +193,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: [
                     Text(
                       slide.title,
-                      style: AppTypography.h1.copyWith(
+                      style: DesignTokens.displayMedium.copyWith(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
+                        color: DesignTokens.textPrimary,
                       ),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 16),
                     Text(
                       slide.description,
-                      style: AppTypography.body.copyWith(
+                      style: DesignTokens.bodyMedium.copyWith(
                         fontSize: 16,
-                        color: AppColors.textSecondary,
+                        color: DesignTokens.textSecondary,
                         height: 1.5,
                       ),
                       textAlign: TextAlign.center,
@@ -237,7 +237,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       width: _currentPage == index ? 24 : 8,
       height: 8,
       decoration: BoxDecoration(
-        color: _currentPage == index ? AppColors.primary : AppColors.textMuted,
+        color: _currentPage == index
+            ? DesignTokens.primaryPurple
+            : DesignTokens.textTertiary,
         borderRadius: BorderRadius.circular(4),
       ),
     );

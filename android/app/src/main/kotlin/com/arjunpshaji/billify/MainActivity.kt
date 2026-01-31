@@ -1,4 +1,4 @@
-package com.example.catch_your_bill
+package com.arjunpshaji.billify
 
 import io.flutter.embedding.android.FlutterActivity
 

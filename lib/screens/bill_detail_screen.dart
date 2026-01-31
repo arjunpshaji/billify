@@ -77,12 +77,12 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
       context: context,
       builder: (ctx) => AlertDialog(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.xl),
+          borderRadius: BorderRadius.circular(DesignTokens.radiusXLarge),
         ),
-        title: Text('Delete Bill?', style: AppTypography.h3),
+        title: Text('Delete Bill?', style: DesignTokens.headingSmall),
         content: Text(
           'This action cannot be undone.',
-          style: AppTypography.body,
+          style: DesignTokens.bodyMedium,
         ),
         actions: [
           TextButton(
@@ -91,7 +91,7 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
           ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            style: TextButton.styleFrom(foregroundColor: AppColors.danger),
+            style: TextButton.styleFrom(foregroundColor: DesignTokens.statusError),
             child: const Text('DELETE'),
           ),
         ],
@@ -120,17 +120,17 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
         widget.bill.originalFilePath?.toLowerCase().endsWith('.pdf') ?? false;
 
     return Scaffold(
-      backgroundColor: AppColors.bgMain,
+      backgroundColor: DesignTokens.backgroundDark,
       appBar: AppBar(
-        backgroundColor: AppColors.bgMain,
-        title: Text('Bill Details', style: AppTypography.h2),
+        backgroundColor: DesignTokens.backgroundDark,
+        title: Text('Bill Details', style: DesignTokens.headingMedium),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
+          icon: const Icon(Icons.arrow_back, color: DesignTokens.textPrimary),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit, color: AppColors.textPrimary),
+            icon: const Icon(Icons.edit, color: DesignTokens.textPrimary),
             onPressed: () {
               // Edit functionality placeholder
               ScaffoldMessenger.of(context).showSnackBar(
@@ -141,7 +141,7 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppSpacing.space4),
+        padding: const EdgeInsets.all(DesignTokens.spacing16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -149,8 +149,8 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
             Container(
               height: 200,
               decoration: BoxDecoration(
-                color: AppColors.bgCard,
-                borderRadius: BorderRadius.circular(AppRadius.xl),
+                color: DesignTokens.backgroundCard,
+                borderRadius: BorderRadius.circular(DesignTokens.radiusXLarge),
               ),
               child: isPdf
                   ? Center(
@@ -160,11 +160,11 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
                           Icon(
                             Icons.picture_as_pdf,
                             size: 80,
-                            color: AppColors.danger,
+                            color: DesignTokens.statusError,
                           ),
-                          const SizedBox(height: AppSpacing.space2),
-                          Text('PDF Document', style: AppTypography.body),
-                          const SizedBox(height: AppSpacing.space3),
+                          const SizedBox(height: DesignTokens.spacing8),
+                          Text('PDF Document', style: DesignTokens.bodyMedium),
+                          const SizedBox(height: DesignTokens.spacing12),
                           OutlinedButton.icon(
                             onPressed: () =>
                                 OpenFile.open(widget.bill.originalFilePath!),
@@ -175,7 +175,7 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
                       ),
                     )
                   : ClipRRect(
-                      borderRadius: BorderRadius.circular(AppRadius.xl),
+                      borderRadius: BorderRadius.circular(DesignTokens.radiusXLarge),
                       child: Image.file(
                         File(widget.bill.imagePath),
                         fit: BoxFit.cover,
@@ -183,20 +183,20 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
                           child: Icon(
                             Icons.broken_image,
                             size: 50,
-                            color: AppColors.textMuted,
+                            color: DesignTokens.textTertiary,
                           ),
                         ),
                       ),
                     ),
             ),
-            const SizedBox(height: AppSpacing.space6),
+            const SizedBox(height: DesignTokens.spacing24),
 
             // Details Grid
             Container(
-              padding: const EdgeInsets.all(AppSpacing.space5),
+              padding: const EdgeInsets.all(DesignTokens.spacing20),
               decoration: BoxDecoration(
-                color: AppColors.bgCard,
-                borderRadius: BorderRadius.circular(AppRadius.xl),
+                color: DesignTokens.backgroundCard,
+                borderRadius: BorderRadius.circular(DesignTokens.radiusXLarge),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,37 +210,37 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
                           children: [
                             Text(
                               'Merchant',
-                              style: AppTypography.caption.copyWith(
-                                color: AppColors.textSecondary,
+                              style: DesignTokens.caption.copyWith(
+                                color: DesignTokens.textSecondary,
                               ),
                             ),
-                            const SizedBox(height: AppSpacing.space1),
+                            const SizedBox(height: DesignTokens.spacing4),
                             Text(
                               widget.bill.title,
-                              style: AppTypography.body.copyWith(
+                              style: DesignTokens.bodyMedium.copyWith(
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(width: AppSpacing.space4),
+                      const SizedBox(width: DesignTokens.spacing16),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Date',
-                              style: AppTypography.caption.copyWith(
-                                color: AppColors.textSecondary,
+                              style: DesignTokens.caption.copyWith(
+                                color: DesignTokens.textSecondary,
                               ),
                             ),
-                            const SizedBox(height: AppSpacing.space1),
+                            const SizedBox(height: DesignTokens.spacing4),
                             Text(
                               DateFormat(
                                 'MMMM dd, yyyy',
                               ).format(widget.bill.date),
-                              style: AppTypography.body.copyWith(
+                              style: DesignTokens.bodyMedium.copyWith(
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -249,49 +249,49 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: AppSpacing.space4),
+                  const SizedBox(height: DesignTokens.spacing16),
 
                   // Type
                   Text(
                     'Type',
-                    style: AppTypography.caption.copyWith(
-                      color: AppColors.textSecondary,
+                    style: DesignTokens.caption.copyWith(
+                      color: DesignTokens.textSecondary,
                     ),
                   ),
-                  const SizedBox(height: AppSpacing.space1),
+                  const SizedBox(height: DesignTokens.spacing4),
                   Text(
                     widget.bill.category,
-                    style: AppTypography.body.copyWith(
+                    style: DesignTokens.bodyMedium.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(height: AppSpacing.space4),
+                  const SizedBox(height: DesignTokens.spacing16),
 
                   // Original Amount
                   Text(
                     'Original Amount',
-                    style: AppTypography.caption.copyWith(
-                      color: AppColors.textSecondary,
+                    style: DesignTokens.caption.copyWith(
+                      color: DesignTokens.textSecondary,
                     ),
                   ),
-                  const SizedBox(height: AppSpacing.space1),
+                  const SizedBox(height: DesignTokens.spacing4),
                   Text(
                     'USD \$${widget.bill.amount.toStringAsFixed(2)}',
-                    style: AppTypography.h2.copyWith(
+                    style: DesignTokens.headingMedium.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
 
                   // Converted Amount
                   if (_targetCurrency != 'USD') ...[
-                    const SizedBox(height: AppSpacing.space4),
+                    const SizedBox(height: DesignTokens.spacing16),
                     Text(
                       'Converted Amount',
-                      style: AppTypography.caption.copyWith(
-                        color: AppColors.textSecondary,
+                      style: DesignTokens.caption.copyWith(
+                        color: DesignTokens.textSecondary,
                       ),
                     ),
-                    const SizedBox(height: AppSpacing.space1),
+                    const SizedBox(height: DesignTokens.spacing4),
                     if (_isLoadingConversion)
                       const SizedBox(
                         width: 20,
@@ -301,23 +301,23 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
                     else if (_convertedAmount != null)
                       Text(
                         '$_targetCurrency ${_convertedAmount!.toStringAsFixed(2)}',
-                        style: AppTypography.h2.copyWith(
-                          color: AppColors.primary,
+                        style: DesignTokens.headingMedium.copyWith(
+                          color: DesignTokens.primaryPurple,
                           fontWeight: FontWeight.bold,
                         ),
                       )
                     else
                       Text(
                         _rateError ?? '',
-                        style: AppTypography.caption.copyWith(
-                          color: AppColors.danger,
+                        style: DesignTokens.caption.copyWith(
+                          color: DesignTokens.statusError,
                         ),
                       ),
                   ],
                 ],
               ),
             ),
-            const SizedBox(height: AppSpacing.space6),
+            const SizedBox(height: DesignTokens.spacing24),
 
             // Action Buttons
             Row(
@@ -328,30 +328,30 @@ class _BillDetailScreenState extends State<BillDetailScreen> {
                     icon: const Icon(Icons.share, size: 20),
                     label: const Text('Share Bill'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
+                      backgroundColor: DesignTokens.primaryPurple,
                       padding: const EdgeInsets.symmetric(
-                        vertical: AppSpacing.space4,
+                        vertical: DesignTokens.spacing16,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(width: AppSpacing.space3),
+                const SizedBox(width: DesignTokens.spacing12),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () => _deleteBill(context),
                     icon: const Icon(Icons.delete, size: 20),
                     label: const Text('Delete Bill'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.danger,
+                      backgroundColor: DesignTokens.statusError,
                       padding: const EdgeInsets.symmetric(
-                        vertical: AppSpacing.space4,
+                        vertical: DesignTokens.spacing16,
                       ),
                     ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: AppSpacing.space4),
+            const SizedBox(height: DesignTokens.spacing16),
           ],
         ),
       ),

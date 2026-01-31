@@ -28,6 +28,9 @@ class Bill extends HiveObject {
   @HiveField(7)
   final String? originalFilePath;
 
+  @HiveField(8)
+  final List<Map<String, dynamic>>? items;
+
   Bill({
     required this.id,
     required this.imagePath,
@@ -37,5 +40,6 @@ class Bill extends HiveObject {
     required this.category,
     this.originalFilePath,
     this.tags = const [],
+    this.items,
   });
 }

@@ -7,95 +7,108 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: AppColors.bgMain,
+      scaffoldBackgroundColor: DesignTokens.backgroundDark,
       colorScheme: ColorScheme.dark(
-        primary: AppColors.primary,
-        secondary: AppColors.secondary,
-        surface: AppColors.bgCard,
-        error: AppColors.danger,
-        background: AppColors.bgMain,
+        primary: DesignTokens.primaryPurple,
+        secondary: DesignTokens.primaryPurpleDark,
+        surface: DesignTokens.backgroundCard,
+        error: DesignTokens.statusError,
       ),
       textTheme: GoogleFonts.interTextTheme(
         TextTheme(
-          displayLarge: AppTypography.h1,
-          displayMedium: AppTypography.h2,
-          displaySmall: AppTypography.h3,
-          bodyLarge: AppTypography.body,
-          bodyMedium: AppTypography.caption,
-          bodySmall: AppTypography.tiny,
+          displayLarge: DesignTokens.displayLarge,
+          displayMedium: DesignTokens.headingMedium,
+          displaySmall: DesignTokens.headingSmall,
+          bodyLarge: DesignTokens.bodyMedium,
+          bodyMedium: DesignTokens.caption,
+          bodySmall: DesignTokens.bodySmall,
         ),
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: AppColors.bgMain,
+        backgroundColor: DesignTokens.backgroundDark,
         elevation: 0,
-        titleTextStyle: AppTypography.h2,
-        iconTheme: const IconThemeData(color: AppColors.textPrimary),
+        titleTextStyle: DesignTokens.headingMedium,
+        iconTheme: const IconThemeData(color: DesignTokens.textPrimary),
       ),
       cardTheme: CardThemeData(
-        color: AppColors.bgCard,
+        color: DesignTokens.backgroundCard,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.xl),
+          borderRadius: BorderRadius.circular(DesignTokens.radiusXLarge),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.bgInput,
+        fillColor: DesignTokens.backgroundCardLight,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppRadius.lg),
+          borderRadius: BorderRadius.circular(DesignTokens.radiusLarge),
           borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppRadius.lg),
-          borderSide: const BorderSide(color: AppColors.borderInput, width: 1),
+          borderRadius: BorderRadius.circular(DesignTokens.radiusLarge),
+          borderSide: const BorderSide(
+            color: DesignTokens.borderPrimary,
+            width: 1,
+          ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppRadius.lg),
-          borderSide: const BorderSide(color: AppColors.primary, width: 1.5),
+          borderRadius: BorderRadius.circular(DesignTokens.radiusLarge),
+          borderSide: const BorderSide(
+            color: DesignTokens.primaryPurple,
+            width: 1.5,
+          ),
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.space4,
-          vertical: AppSpacing.space4,
+          horizontal: DesignTokens.spacing16,
+          vertical: DesignTokens.spacing16,
         ),
-        hintStyle: AppTypography.body.copyWith(color: AppColors.textMuted),
-        labelStyle: AppTypography.body.copyWith(color: AppColors.textSecondary),
+        hintStyle: DesignTokens.bodyMedium.copyWith(
+          color: DesignTokens.textTertiary,
+        ),
+        labelStyle: DesignTokens.bodyMedium.copyWith(
+          color: DesignTokens.textSecondary,
+        ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: AppColors.primary,
+        backgroundColor: DesignTokens.primaryPurple,
         foregroundColor: Colors.white,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppRadius.lg),
+          borderRadius: BorderRadius.circular(DesignTokens.radiusLarge),
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
+          backgroundColor: DesignTokens.primaryPurple,
           foregroundColor: Colors.white,
           elevation: 0,
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.space6,
-            vertical: AppSpacing.space4,
+            horizontal: DesignTokens.spacing24,
+            vertical: DesignTokens.spacing16,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppRadius.lg),
+            borderRadius: BorderRadius.circular(DesignTokens.radiusLarge),
           ),
-          textStyle: AppTypography.body.copyWith(fontWeight: FontWeight.w600),
+          textStyle: DesignTokens.bodyMedium.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.primary,
-          side: const BorderSide(color: AppColors.primary, width: 1.5),
+          foregroundColor: DesignTokens.primaryPurple,
+          side: const BorderSide(color: DesignTokens.primaryPurple, width: 1.5),
           elevation: 0,
           padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.space6,
-            vertical: AppSpacing.space4,
+            horizontal: DesignTokens.spacing24,
+            vertical: DesignTokens.spacing16,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppRadius.lg),
+            borderRadius: BorderRadius.circular(DesignTokens.radiusLarge),
           ),
-          textStyle: AppTypography.body.copyWith(fontWeight: FontWeight.w600),
+          textStyle: DesignTokens.bodyMedium.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );
